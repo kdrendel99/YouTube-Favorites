@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model YouTubeFavorites.Models.YouTubePage
+
+<h4>Add a new YouTube page</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title)
+  <br>
+
+  @Html.LabelFor(model => model.Description)  
+  @Html.TextBoxFor(model => model.Description)
+  <br>
+  @Html.LabelFor(model => model.Link)
+  @Html.TextBoxFor(model => model.Link)
+  <br>
+  @Html.Label("Select Category")
+  @Html.DropDownList("CategoryId")
+  <br>
+
+    <input type="submit" value="Add new page" class="btn btn-default"/>
+}
+<p>@Html.ActionLink("Show all YouTube pages", "Index")</p>

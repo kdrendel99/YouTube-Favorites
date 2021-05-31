@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using YouTubeFavorites.Models;
+@model List<YouTubeFavorites.Models.YouTubePage>;
+
+<h1>YouTube Pages</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No pages have been added yet!</h3>
+} 
+
+<ul>
+  @foreach (YouTubePage youtubepage in Model)
+  {
+    <li>@Html.ActionLink($"{youtubepage.Title}", "Details", new { id = youtubepage.YouTubePageId }) | </li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add a new YouTube page", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
